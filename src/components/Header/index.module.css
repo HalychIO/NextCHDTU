@@ -1,0 +1,33 @@
+.Header, .nav, .Link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Header {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+
+    background-color: var(--midlleground);
+    color: var(--foreground-highlight);
+
+    justify-content: space-between;
+}
+
+.nav {
+    height: 100%;
+
+    justify-content: space-between;
+}
+
+.Link {
+    width: 80px;
+    height: 100%;
+
+    justify-content: center;
+}
+
+.Link:hover {
+    background-color: var(--midlleground-highlight);
+}

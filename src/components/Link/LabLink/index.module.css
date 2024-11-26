@@ -1,0 +1,26 @@
+.LabLink {
+    height: 30px;
+    width: 100%;
+    padding: 0 12px;
+    font-size: 0.8em;
+
+    background-color: var(--background-highlight);
+    border-radius: var(--border-radius);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.LabLink:hover {
+    background-color: var(--background);
+}
+
+.LabLink:active {
+    background-color: rgba(var(--foreground), 20%);
+}
+
+.LabLink p {
+    color: rgba(var(--foreground), 0.7);
+}

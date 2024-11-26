@@ -1,0 +1,44 @@
+.Table {
+    width: 100%;
+    padding: 0;
+
+    border-collapse: collapse;
+    background-color: var(--background);
+    border: 1px solid var(--foreground);
+
+    table-layout: fixed;
+    font-size: 1cqw;
+}
+
+.Table thead th {
+    padding: 2px;
+    border: 1px solid var(--foreground);
+    background-color: var(--midlleground);
+}
+
+@media (max-width: 700px) {
+    .Table thead tr:nth-child(2) th, .Table thead tr th:nth-child(1) {
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+
+        padding: 2px;
+        border: 1px solid var(--foreground);
+        background-color: var(--midlleground);
+    }
+}
+
+.Table thead td {
+    text-align: center;
+}
+
+.Caption {
+    margin: 12px 0;
+}
+
+.FirstColum {
+    background-color: var(--foreground);
+}
+
+.Rows {
+    width: calc(100% - 100px);
+}

@@ -1,0 +1,23 @@
+.button {
+    width: 40%;
+    height: 40px;
+    margin-top: 12px;
+
+    border-radius: 8px;
+    border: none;
+    background-color: var(--midlleground);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.button:hover {
+    background-color: var(--midlleground-highlight);
+}
+
+.button:active {
+    background-color: var(--foreground);
+}

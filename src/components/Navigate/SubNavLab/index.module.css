@@ -1,0 +1,9 @@
+.nav {
+    width: 60px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 12px;
+}

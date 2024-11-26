@@ -1,0 +1,17 @@
+.NavLink {
+    height: 100%;
+    padding: 0 24px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.NavLink:hover {
+    background-color: rgba(var(--foreground), 5%);
+}
+
+.NavLink:active {
+    background-color: rgba(var(--foreground), 20%);
+}

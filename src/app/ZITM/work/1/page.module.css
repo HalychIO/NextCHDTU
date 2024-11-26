@@ -1,0 +1,30 @@
+.page {
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-around;
+    gap: 12px;
+}
+
+.main {
+    width: calc(100vw - 80px);
+    background-color: var(--background-highlight);
+
+    border-radius: var(--border-radius);
+
+    gap: 32px;
+}
+
+.section {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.h1 {
+    text-align: center;
+}

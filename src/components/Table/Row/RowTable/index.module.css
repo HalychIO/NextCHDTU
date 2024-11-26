@@ -1,0 +1,8 @@
+.Row {
+    border: 1px solid var(--foreground);
+}
+
+.TitleRow {
+    background-color: var(--midlleground);
+    padding: 8px;
+}

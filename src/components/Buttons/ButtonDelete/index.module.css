@@ -1,0 +1,22 @@
+.button {
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.button:hover {
+    background-color: #c80000;
+}
+
+.button:active {
+    background-color: red;
+}

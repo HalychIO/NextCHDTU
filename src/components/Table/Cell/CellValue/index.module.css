@@ -1,0 +1,12 @@
+.CellTable {
+    height: 30px;
+    text-align: center;
+    border-bottom: 1px solid var(--foreground);
+    /*margin: 0;*/
+}
+
+.CellTable input {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
