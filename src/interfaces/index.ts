@@ -21,7 +21,7 @@ export interface ITableColumnValue {
 
 export interface ITableRows {
     id: number;
-    name: string;
+    name: string | number;
     criterion: ITableColumnValue[];
 }
 

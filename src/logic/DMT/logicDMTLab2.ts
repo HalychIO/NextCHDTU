@@ -1,6 +1,6 @@
 import {IOutput, ITableColumnTitle, ITableColumnValue, ITableRows} from "@/interfaces";
 
-export function logicDMTLab2(
+export default function logicDMTLab2(
     Rows: ITableRows[],
     Columns: ITableColumnTitle[],
     typeAlgorithm: string,

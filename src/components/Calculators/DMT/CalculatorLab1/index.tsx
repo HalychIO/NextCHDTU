@@ -6,7 +6,7 @@ import {IOptions, IOutput, ITableColumnTitle, ITableRows} from "@/interfaces";
 import {fieldProbabilitiesStates, fieldStrategy} from "@/logic/functions/field";
 import ButtonCreate from "@/components/Buttons/ButtonCreate";
 import {Select} from "@/components/Selects";
-import {logicDMTLab1} from "@/logic/DMT/logicDMTLab1";
+import logicDMTLab1 from "@/logic/DMT/logicDMTLab1";
 import ButtonStarts from "@/components/Buttons/ButtonStarts";
 import {
     changeCriterionName,

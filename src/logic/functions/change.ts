@@ -10,7 +10,7 @@ export function changeCriterionName(Arr: ITableColumnTitle[], idCriterion: numbe
     return newArr;
 }
 
-export function changeStrategyName(Arr: ITableRows[], idStrategy: number, newValue: string) {
+export function changeStrategyName(Arr: ITableRows[], idStrategy: number, newValue: string | number) {
     const newArr: ITableRows[] = Arr;
 
     newArr.forEach((strategy) => {

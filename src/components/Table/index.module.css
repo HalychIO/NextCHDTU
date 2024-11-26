@@ -7,11 +7,12 @@
     border: 1px solid var(--foreground);
 
     table-layout: fixed;
-    font-size: 1cqw;
+    font-size: 0.6em;
 }
 
 .Table thead th {
-    padding: 2px;
+    overflow: hidden;
+    padding: 1px;
     border: 1px solid var(--foreground);
     background-color: var(--midlleground);
 }
@@ -36,7 +37,9 @@
 }
 
 .FirstColum {
-    background-color: var(--foreground);
+    width: 200px;
+    background-color: var(--background-highlight);
+    border: 1px solid var(--foreground);
 }
 
 .Rows {

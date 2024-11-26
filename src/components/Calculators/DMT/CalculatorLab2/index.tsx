@@ -17,7 +17,7 @@ import {createColumn, createRow} from "@/logic/functions/create";
 import {getID} from "@/logic/functions/All";
 import {deleteCriterion, deleteStrategy} from "@/logic/functions/delete";
 import Result from "@/components/Result";
-import {logicDMTLab2} from "@/logic/DMT/logicDMTLab2";
+import logicDMTLab2 from "@/logic/DMT/logicDMTLab2";
 import Section from "@/components/Section";
 
 export default function CalculatorLab2(): React.ReactElement {
@@ -110,6 +110,12 @@ export default function CalculatorLab2(): React.ReactElement {
             )}
         </Section>
         <Section title={"Результат"}>
+            <ButtonStarts
+                title={"Start"}
+                clickFunction={() => setOutput(logicDMTLab2(
+                    strategy,
+                ))}
+            />
             <Result output={output}/>
         </Section>
     </>)

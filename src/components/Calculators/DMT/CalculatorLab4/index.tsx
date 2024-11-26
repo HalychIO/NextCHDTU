@@ -1,23 +1,26 @@
 "use client";
-import React, {useMemo} from "react";
 import styles from "@/components/Calculators/DMT/index.module.css"
 import Table from "@/components/Table";
-import ButtonCreate from "@/components/Buttons/ButtonCreate";
-import ButtonStarts from "@/components/Buttons/ButtonStarts";
+import React, {useMemo} from "react";
 import {IOutput, ITableColumnTitle, ITableRows} from "@/interfaces";
 import {fieldStrategy} from "@/logic/functions/field";
+import ButtonCreate from "@/components/Buttons/ButtonCreate";
+import ButtonStarts from "@/components/Buttons/ButtonStarts";
 import {changeCriterionName, changeStrategyCriterionValues, changeStrategyName} from "@/logic/functions/change";
 import {createColumn, createRow} from "@/logic/functions/create";
 import {getID} from "@/logic/functions/All";
 import {deleteCriterion, deleteStrategy} from "@/logic/functions/delete";
 import Result from "@/components/Result";
 import Section from "@/components/Section";
-import {logicZITMLab3} from "@/logic/ZITM/logicZITMLab3";
+import logicDMTLab4 from "@/logic/DMT/logicDMTLab4";
 
-export default function CalculatorLab3(): React.ReactElement {
+export default function CalculatorLab4(): React.ReactElement {
     const [ID, setID] = React.useState<number>(0);
     const [criterion, setCriterion] = React.useState<ITableColumnTitle[]>([]);
     const [strategy, setStrategy] = React.useState<ITableRows[]>([]);
+    const [criterionCoefficients, setCriterionCoefficients] = React.useState<ITableRows[]>([
+        {id: -1, name: 'Коефіцієнти', criterion: []}
+    ]);
     const [output, setOutput] = React.useState<IOutput>({
         tableRows: [],
         tableColumn: [],
@@ -26,25 +29,27 @@ export default function CalculatorLab3(): React.ReactElement {
 
     useMemo(() => {
         setStrategy(fieldStrategy(strategy, criterion));
+        setCriterionCoefficients(fieldStrategy(criterionCoefficients, criterion));
     }, [criterion, criterion.length, strategy, strategy.length])
 
     return (<>
-        <Section title={"Налаштування"}>
+        <Section title={"svs"}>
             <div className={styles.ButtonsCreate}>
                 <ButtonCreate
-                    title={"add Y"}
-                    clickFunction={() => setStrategy(createRow(strategy, criterion, getID(ID, setID), "Y" + (strategy.length + 1)))}
+                    title={"add strategy"}
+                    clickFunction={() => setStrategy(createRow(strategy, criterion, getID(ID, setID), "new Row"))}
                 />
-
                 <ButtonCreate
-                    title={"add X"}
-                    clickFunction={() => setCriterion(createColumn(criterion, getID(ID, setID), "X" + (criterion.length + 1)))}
+                    title={"add criterion"}
+                    clickFunction={() => setCriterion(createColumn(criterion, getID(ID, setID), "new Column"))}
                 />
             </div>
         </Section>
 
-        <Section title={"Вхідні дані"}>
+        <Section title={"Таблиці вхідних даних"}>
             <Table
+                titleRows={"Стратегії"}
+                titleColumn={"Критерії"}
                 columns={criterion}
                 deleteColumn={(ID: number): void => setCriterion(deleteCriterion(criterion, ID))}
                 changeColumnName={(id: number, newValue: string): void => setCriterion(
@@ -54,19 +59,30 @@ export default function CalculatorLab3(): React.ReactElement {
                 rows={strategy}
                 deleteRows={(ID: number): void => setStrategy(deleteStrategy(strategy, ID))}
                 changeRowsName={(id: number, newValue: string): void => setStrategy(
-                    changeStrategyName(strategy, id, Number(newValue)))}
+                    changeStrategyName(strategy, id, newValue))}
                 changeRowsColumnValue={(idRow: number, idColumn: number, newValue: number): void => setStrategy(
                     changeStrategyCriterionValues(strategy, idRow, idColumn, newValue)
                 )}
             />
-        </Section>
+            <Table
+                titleRows={" "}
+                titleColumn={"Коефіцієнти критеріїв"}
+                columns={criterion}
 
+                rows={criterionCoefficients}
+                changeRowsColumnValue={(idRow: number, idColumn: number, newValue: number): void => setCriterionCoefficients(
+                    changeStrategyCriterionValues(criterionCoefficients, idRow, idColumn, newValue)
+                )}
+            />
+        </Section>
         <Section title={"Результат"}>
             <ButtonStarts
                 title={"Start"}
-                clickFunction={() => setOutput(logicZITMLab3(strategy))}
+                clickFunction={() => setOutput(logicDMTLab4(
+                    strategy,
+                    criterionCoefficients,
+                ))}
             />
-
             <Result output={output}/>
         </Section>
     </>)
